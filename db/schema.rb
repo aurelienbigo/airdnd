@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814141638) do
+ActiveRecord::Schema.define(version: 20170814145006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "price"
+    t.string "url"
+    t.text "description"
+    t.string "address"
+    t.string "city"
+    t.integer "postcode"
+    t.float "lng"
+    t.float "lat"
+    t.string "phone"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "description"
+    t.bigint "profile_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_reviews_on_profile_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +59,7 @@ ActiveRecord::Schema.define(version: 20170814141638) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "users"
+  add_foreign_key "reviews", "profiles"
+  add_foreign_key "reviews", "users"
 end
