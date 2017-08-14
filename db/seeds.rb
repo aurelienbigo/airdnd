@@ -1,5 +1,28 @@
+# Seeds creation with faker gem and comments during process
+
+pwd = "123456"
+puts "************************************************"
+puts "Cleaning Database"
+puts "************************************************"
+Review.destroy_all
+puts "5"
+Skill.destroy_all
+puts "4"
+SkillLvl.destroy_all
+puts "3"
+Reservation.destroy_all
+puts "2"
+Profile.destroy_all
+puts "1"
+User.destroy_all
+puts "************************************************"
+puts 'Database destroyed'
+puts "************************************************"
+puts "Seeding work start"
+puts "************************************************"
+
 wagon_users = [
-  {first_name: "Aubry", last_name: "Prieur"},
+  {first_name: "Aubry", last_name: "Prieur" },
   {first_name: "Augustin", last_name: "Poupard"},
   {first_name: "Aurélien", last_name: "Bigo"},
   {first_name: "Bertrand", last_name: "Matelart"},
@@ -16,28 +39,20 @@ wagon_users = [
   {first_name: "Gabriel", last_name: "De la Broue de Vareilles Sommière"},
   {first_name: "Yann", last_name: "Irbah"},
 ]
-
-skills = ["Passe super bien l'aspirateur",
-          "Toujours à l'heure",
-          "Pro de l'écoute attentive",
-          "Mettez-moi un clavier dans ... les mains pour voir",
-          "Barique à bière"
-        ]
-
-pwd = "123456"
-email = "truc@machin.com"
-
-User.destroy_all
-puts 'All users destroyed'
-
 wagon_users.each do |user|
-  u = User.create!(first_name: user[:first_name],
-              last_name: user[:last_name],
-              email: email,
-              password: pwd
-              )
-  puts '#{user[:first_name]} created'
-  profile = Profile.create!(prices: (10..30).to_a.sample,
+  first_name = user[:first_name]
+  last_name = user[:last_name]
+  review_count = 0
+  price = (10..30).to_a.sample
+  # User creation
+  u = User.create!( first_name: first_name,
+                    last_name: last_name,
+                    email: "#{first_name}.#{last_name.gsub(" ", "-")}@gmail.com",
+                    password: pwd
+                    )
+  print first_name + " " + last_name + " is borned"
+  # Profile creation
+  profile = Profile.create!(price: price,
                             url: "www.lewagon.org",
                             description: Faker::Lorem.paragraph(2..5),
                             address: Faker::Address.street_address,
@@ -46,13 +61,21 @@ wagon_users.each do |user|
                             phone: "0320304050",
                             lng: 0.00,
                             lat: 0.00,
+                            user_id: u.id
                             )
+  print " and has now a profile,"
+  # Reviews creation
   (3..13).to_a.sample.times do
-    review = Review.create!(rating: (0..5).to_a.sample),
+    review_count += 1
+    review = Review.create!(rating: (0..5).to_a.sample,
                             description: Faker::Lorem.paragraph,
                             user_id: u.id,
                             profile_id: profile.id
                             )
   end
+  puts " with #{review_count} reviews."
 end
+puts "************************************************"
+puts "Dirty work done"
+puts "************************************************"
 
