@@ -38,6 +38,11 @@ wagon_users = [
   {first_name: "François-Xavier", last_name: "Abraham"},
   {first_name: "Gabriel", last_name: "De la Broue de Vareilles Sommière"},
   {first_name: "Yann", last_name: "Irbah"},
+  {first_name: "Delphine", last_name: "Martinache"},
+  {first_name: "Eugène", last_name: "Frys"},
+  {first_name: "Martin", last_name: "Debrunne"},
+  {first_name: "Romain", last_name: "Despature"},
+  {first_name: "Vincent", last_name: "Textoris"}
 ]
 wagon_users.each do |user|
   first_name = user[:first_name]
