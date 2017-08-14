@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20170814151132) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.date "begin_date"
+    t.date "end_date"
+    t.text "description"
+    t.bigint "user_id"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_reservations_on_profile_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "description"
@@ -40,6 +52,22 @@ ActiveRecord::Schema.define(version: 20170814151132) do
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "skill_lvls", force: :cascade do |t|
+    t.integer "lvl"
+    t.bigint "profile_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_skill_lvls_on_profile_id"
+    t.index ["skill_id"], name: "index_skill_lvls_on_skill_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,6 +91,10 @@ ActiveRecord::Schema.define(version: 20170814151132) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "reservations", "profiles"
+  add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "users"
+  add_foreign_key "skill_lvls", "profiles"
+  add_foreign_key "skill_lvls", "skills"
 end
