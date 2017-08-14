@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :reservation
-  has_many :review
+  has_many :reservations
+  has_many :reviews
 
   validates :last_name, presence: true
   validates :first_name, presence: true
