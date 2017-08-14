@@ -1,8 +1,8 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  has_many :skill_lvl
-  has_many :review
-  has_many :reservation
+  has_many :skill_lvls
+  has_many :reviews
+  has_many :reservations
 
   validates :description, presence: true
   validates :address, presence: true
