@@ -16,6 +16,8 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
+    @profile.user = current_user
+    @profile.save
   end
 
   def edit
@@ -40,7 +42,7 @@ class ProfilesController < ApplicationController
     @skills_names << skill.name
     end
   end
-  
+
   # def user
   #   @user = User.find(@profile.user_id)
   # end
