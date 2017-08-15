@@ -1,10 +1,8 @@
 class ProfilesController < ApplicationController
-  def index
-    @profiles = Profile.all
-  end
+  before_action :set_profile, only: [:show, :edit]
+
 
   def show
-    @profile = Profile.find(params[:id])
   end
 
   def new
@@ -12,19 +10,27 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profil.new(profil_params)
+    @profile = Profile.new(profile_params)
   end
 
   def edit
   end
 
   def update
+    @profile.update(profile_params)
+    redirect_to profiles_path
   end
 
   def destroy
+    @profile.destroy
+    redirect_to profiles_path
   end
 
   private
+
+def set_profile
+    @profile = Profile.find(params[:id])
+  end
 
   def profile_params
     params.require(:profile).permit(:price, :url, :description, :phone, :address)
