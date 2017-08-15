@@ -30,6 +30,13 @@ skills = ["Bûcheron style",
           "Sobre",
           "Loin d'être sobre"]
 
+skills.each do |skill|
+  Skill.create!(name: skill)
+end
+
+puts "************************************************"
+puts "Skills defined"
+puts "************************************************"
 
 pwd = "123456"
 wagon_users = [

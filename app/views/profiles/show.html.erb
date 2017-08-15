@@ -1,5 +1,34 @@
 <h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="container main_content">
+  <div class="row">
+    <div class="photo_container col-xs-4 col-sd-4 col-sm-4 col-lg-4">
+      <%= cl_image_tag @profile.user.photo.path, width: 100, height: 100, id: "avatar" %>
+    </div>
+    <div class="profile_infos col-xs-8 col-sd-8 col-sm-8 col-lg-8">
+      <h2>
+        <%= @profile.user.first_name %>
+        <%= @profile.user.last_name %>
+      </h2>
+      <h3 class="profile_city">
+        <%= @profile.city %>
+      </h3>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="social_links">
+
+    </div>
+    <div class="skills">
+
+    </div>
+  </div>
+    <p class="profile_description">
+      <%= @profile.description %>
+    </p>
+</div>
+
 
 
 
