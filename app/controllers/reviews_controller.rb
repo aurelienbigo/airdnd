@@ -1,22 +1,28 @@
 class ReviewsController < ApplicationController
-  def index
-  end
 
-  def show
-  end
 
   def new
+    @profile = Profile.find(params[:profile_id])
+    @review = Review.new
   end
 
   def create
+    @profile = Profile.find(params[:profile_id])
+    @review = Review.new(review_params)
+    @review.profile = @profile
+
+    if @review.save
+        redirect_to profile_path(@profile)
+    else
+      render :new
+    end
   end
 
-  def edit
-  end
+  private
 
-  def update
-  end
-
-  def destroy
+    def review_params
+    params.require(:review).permit(:description, :rating)
   end
 end
+
+
