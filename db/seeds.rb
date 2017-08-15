@@ -1,19 +1,13 @@
 # Seeds creation with faker gem and comments during process
 
-pwd = "123456"
 puts "************************************************"
 puts "Cleaning Database"
 puts "************************************************"
 Review.destroy_all
-puts "5"
 Skill.destroy_all
-puts "4"
 SkillLvl.destroy_all
-puts "3"
 Reservation.destroy_all
-puts "2"
 Profile.destroy_all
-puts "1"
 User.destroy_all
 puts "************************************************"
 puts 'Database destroyed'
@@ -21,6 +15,21 @@ puts "************************************************"
 puts "Seeding work start"
 puts "************************************************"
 
+skills = ["Bûcheron style",
+          "Barbe courte",
+          "Barbe longue",
+          "Espadrilles",
+          "Tong",
+          "Bonnet",
+          "Imberbe",
+          "Tenue de plage",
+          "Ogre",
+          "Petit modèle",
+          "Taille normale",
+          "Grand modèle",
+          "Sobre",
+          "Loin d'être sobre"]
+pwd = "123456"
 wagon_users = [
   {first_name: "Aubry", last_name: "Prieur", url: "http://res.cloudinary.com/aurelbigo/image/upload/v1502727666/aubry_qznylg.png" },
   {first_name: "Augustin", last_name: "Poupard", url: "http://res.cloudinary.com/aurelbigo/image/upload/v1502727667/poupard_idskpa.jpg"},
