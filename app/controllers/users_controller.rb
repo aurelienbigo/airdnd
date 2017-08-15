@@ -36,6 +36,6 @@ def set_user
   end
 
   def profile_params
-    params.require(:user).permit(:first_name, :last_name, :email, photos: [])
+    params.require(:user).permit(:first_name, :last_name, :email, :photo)
   end
 end
