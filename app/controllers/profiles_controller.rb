@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profil.new(profil_params)
+    @profile = Profile.new(profile_params)
   end
 
   def edit
