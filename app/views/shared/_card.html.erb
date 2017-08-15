@@ -2,7 +2,7 @@
 
 <div class="card">
   <div class="card-photo">
-    <%= cl_image_tag profile.user.photo, width: 100, height: 100, class: "card-avatar" %>
+    <%= cl_image_tag profile.user.photo.path, width: 100, height: 100, class: "card-avatar" %>
   </div>
   <div class="card-description">
     <h2> <%= profile.user.first_name %> </h2>
