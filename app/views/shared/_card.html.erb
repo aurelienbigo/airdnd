@@ -1,14 +1,15 @@
-<div class="card">
-  <div class="card-photo">
-    <%= cl_image_tag profile.user.photo.path, width: 100, height: 100, class: "card-avatar" %>
+<div class="card_box col-xs-12 col-sm-6 col col-md-4">
+  <div class="card">
+    <div class="card-photo">
+      <%= cl_image_tag profile.user.photo.path, width: 100, height: 100, class: "card-avatar" %>
+    </div>
+    <div class="card-description">
+      <h2> <%= profile.user.first_name %> </h2>
+      <p><%= profile.city %></p>
+    </div>
+    <%= link_to '', profile_path(profile), class: "card-link" %>
   </div>
-  <div class="card-description">
-    <h2> <%= profile.user.first_name %> </h2>
-    <p><%= profile.city %></p>
-  </div>
-  <%= link_to '', profile_path(profile), class: "card-link" %>
 </div>
-
 
 
 
