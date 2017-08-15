@@ -1,5 +1,4 @@
-<h1>Profiles#show</h1>
-<div class="container main_content">
+<div class="container profile_content">
   <div class="row">
     <div class="photo_container col-xs-4 col-sd-4 col-sm-4 col-lg-4">
       <%= cl_image_tag @profile.user.photo.path, width: 100, height: 100, id: "avatar" %>
@@ -10,23 +9,35 @@
         <%= @profile.user.last_name %>
       </h2>
       <h3 class="profile_city">
-        <%= @profile.city %>
+        city: <%= @profile.city %>
       </h3>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container profile_content">
   <div class="row">
-    <div class="social_links">
-
+    <div class="col-xs-12 col-sd-12 col-sm-4 col-lg-4">
+      <div class="skills text-center">
+      SKILLS
+      </div>
+      <div class="social_links text-center">
+      SHARE THIS ON SOCIAL NETWORK
+      </div>
     </div>
-    <div class="skills">
-
+    <div class="col-xs-12 col-sd-12 col-sm-8 col-lg-8">
+      <p class="profile_description">
+        <%= @profile.description %>
+      </p>
     </div>
   </div>
-    <p class="profile_description">
-      <%= @profile.description %>
-    </p>
+  <div class="row text-center">
+    <div class="col-xs-12">
+      <h2>PORTOFOLIO TO CREATE</h2>
+    </div>
+    <div class="col-xs-12">
+      <h2>REVIEW TO CREATE</h2>
+    </div>
+  </div>
 </div>
 
 
