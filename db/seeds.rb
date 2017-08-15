@@ -29,6 +29,15 @@ skills = ["Bûcheron style",
           "Grand modèle",
           "Sobre",
           "Loin d'être sobre"]
+
+skills.each do |skill|
+  Skill.create!(name: skill)
+end
+
+puts "************************************************"
+puts "Skills defined"
+puts "************************************************"
+
 pwd = "123456"
 wagon_users = [
   {first_name: "Aubry", last_name: "Prieur", url: "http://res.cloudinary.com/aurelbigo/image/upload/v1502727666/aubry_qznylg.png" },
