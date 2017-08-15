@@ -1,0 +1,6 @@
+<%= simple_form_for @profile do |f| %>
+      <%= f.input :city %>
+      <%= f.input :price %>
+      <%= f.input :skill, :colletion => ['Bûcheron style', 'Barbe courte', 'Barbe longue', 'Espadrilles', 'Tong', 'Bonnet', 'Imberbe', 'Tenue de plage', 'Ogre', 'Petit modèle', 'Taille normale', 'Grand modèle', 'Sobre', "Loin d'être sobre"]%>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>

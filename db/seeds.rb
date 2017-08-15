@@ -29,6 +29,8 @@ skills = ["Bûcheron style",
           "Grand modèle",
           "Sobre",
           "Loin d'être sobre"]
+
+
 pwd = "123456"
 wagon_users = [
   {first_name: "Aubry", last_name: "Prieur", url: "http://res.cloudinary.com/aurelbigo/image/upload/v1502727666/aubry_qznylg.png" },

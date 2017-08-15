@@ -1,5 +1,5 @@
 class Skill < ApplicationRecord
   belongs_to :profile
 
-  validates :lvl, presence: true
+  validates :name, presence: true
 end
