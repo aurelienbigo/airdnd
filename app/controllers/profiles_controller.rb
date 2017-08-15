@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all
-    @profiles_search = Profile.search(params[:search])
+    # @profiles_search = Profile.search(params[:search])
   end
 
   def show
@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
     @skills_names << skill.name
     end
   end
-  
+
   # def user
   #   @user = User.find(@profile.user_id)
   # end
