@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit]
 
+  def index
+    @profiles = Profile.search(params[:search])
+  end
 
   def show
   end
@@ -28,7 +31,11 @@ class ProfilesController < ApplicationController
 
   private
 
-def set_profile
+  # def user
+  #   @user = User.find(@profile.user_id)
+  # end
+
+  def set_profile
     @profile = Profile.find(params[:id])
   end
 
