@@ -36,6 +36,13 @@
     </div>
     <div class="col-xs-12">
       <h2>REVIEW TO CREATE</h2>
+      <ul>
+        <% @profile.reviews.each do |review| %>
+          <li>
+            <p><%= review.description %></p>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
