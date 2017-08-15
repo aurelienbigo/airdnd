@@ -1,5 +1,5 @@
 # Seeds creation with faker gem and comments during process
-
+require 'faker'
 puts "************************************************"
 puts "Cleaning Database"
 puts "************************************************"
