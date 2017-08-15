@@ -1,8 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit]
+  before_action :set_skills, only: [:index]
 
   def index
-    @profiles = Profile.search(params[:search])
+    @profiles = Profile.all
+    @profiles_search = Profile.search(params[:search])
   end
 
   def show
@@ -31,6 +33,14 @@ class ProfilesController < ApplicationController
 
   private
 
+
+  def set_skills
+    @skills_names = []
+    Skill.all.each do |skill|
+    @skills_names << skill.name
+    end
+  end
+  
   # def user
   #   @user = User.find(@profile.user_id)
   # end
