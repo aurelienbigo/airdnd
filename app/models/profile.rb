@@ -11,4 +11,12 @@ class Profile < ApplicationRecord
   validates :phone, presence: true
   validates :price, presence: true
 
+  # def self.search(search)
+  # if search
+  #   find(:all, :conditions => ['city ?', "%#{search}%"])
+  # else
+  #   find(:all)
+  # end
+# end
+
 end
