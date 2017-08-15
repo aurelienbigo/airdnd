@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_skills, only: [:index]
 
   def index
-    @profile = Profile.all
+    @profiles = Profile.all
   end
 
   def show
