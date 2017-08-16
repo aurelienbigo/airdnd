@@ -1,2 +1,30 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<div class="container test text-center">
+<h4> Ajouter FORM </h4>
+</div>
+
+
+<div class="container text-center">
+  <div class="container profile-header-container text-center">
+    <div class="tab">
+      <h3>Dashboard User</h3>
+      <p> Summary of your bookings <p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-right">
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Create your dev profile
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <%= render "shared/reservation" %>
+    </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script>
