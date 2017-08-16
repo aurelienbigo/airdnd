@@ -1,24 +1,30 @@
+<div class="container test text-center">
+<h4> Ajouter FORM </h4>
+</div>
 
-    <div class="profile-header-wrapper">
-      <div class="container profile-header-container text-center">
-        <div class="tabs">
-          <a class="tab active" data-target="#bio">
-            <h3>User</h3>
-          </a>
-          <a class="tab" data-target="#projects">
-            <h3>Developper</h3>
-          </a>
+
+<div class="container text-center">
+  <div class="container profile-header-container text-center">
+    <div class="tab">
+      <h3>Dashboard User</h3>
+      <p> Summary of your bookings <p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="text-right">
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Create your dev profile
+          </button>
         </div>
       </div>
     </div>
-    <div class="container text-center">
-      <div class="tab-content" id="bio">
-        <%= render "shared/reservation" %>
-      </div>
-      <div class="tab-content hidden" id="projects">
-        <p>Here are my projects.</p>
-      </div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <div class="container text-center">
+      <%= render "shared/reservation" %>
+    </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="javascript/tabs.js"></script>
