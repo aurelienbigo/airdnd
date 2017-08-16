@@ -16,14 +16,19 @@
   </div>
 </div>
 
-<div class="container text-center">
+<div class="container">
   <div class="tab-content" id="user">`
     <% @reservations.each do |reservation| %>
-    <%= render "shared/reservation", reservation: reservation %>
+      <%= render "shared/reservation", reservation: reservation %>
     <% end %>
   </div>
-  <div class="tab-content hidden" id="developper">
-    <%= link_to 'Create your dev profile', new_profile_path, class: 'btn btn-success' %>
+  <div class="tab-content hidden col-xs-12" id="developper">
+    <div class="text-center">
+      <%= link_to 'Create your dev profile', new_profile_path, class: 'btn btn-success' %>
+    </div>
+      <% @reservations.each do |reservation| %>
+        <%= render "shared/dev_reservation", reservation: reservation %>
+      <% end %>
   </div>
 </div>
 

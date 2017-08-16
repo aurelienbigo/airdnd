@@ -1,17 +1,19 @@
-<div class="reservation">
-  <%= image_tag_for_user(reservation.user) %>
-  <div class="reservation-name">
-    <h3><%= reservation.user.first_name %></h3>
-    <p>Début: <%= reservation.begin_date %></p>
-    <p>Fin: <%= reservation.end_date %></p>
+<div class="row reservation">
+  <div class="cols-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <%= image_tag_for_user(reservation.user) %>
   </div>
-  <div class="reservation-body">
+  <div class="cols-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-name">
+    <h4><%= reservation.user.first_name %></h4>
+    <p class="reservation_date">Du <%= reservation.begin_date %></p>
+    <p class="reservation_date">Au <%= reservation.end_date %></p>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 reservation-body">
     <p><strong>Description de la mission</strong></p>
     <p>
       <%= reservation.description %>
     </p>
   </div>
-  <div class="reservation-status">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-status">
     <button class="btn btn-success">Accepter</button>
     <button class="btn btn-danger">Refuser</button>
   </div>

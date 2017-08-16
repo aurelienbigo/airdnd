@@ -1,6 +1,6 @@
-<div class="reservation">
+<div class="row reservation">
   <%= image_tag_for_user(reservation.profile.user) %>
-  <div class="reservation-name">
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-name">
     <h3><%= reservation.profile.user.first_name %></h3>
     <p><%= reservation.begin_date %></p>
     <% if reservation.status = "Accepté" %>
@@ -9,13 +9,13 @@
     <% end %>
 
   </div>
-  <div class="reservation-body">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 reservation-body">
     <p><strong>Description de la mission</strong></p>
     <p>
       <%= reservation.description %>
     </p>
   </div>
-  <div class="reservation-status">
+  <div class= "col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-status">
     <p class="status pending"><%= reservation.status %></p>
     <p class="price"><%= reservation.price %></p>
   </div>
