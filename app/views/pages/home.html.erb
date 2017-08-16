@@ -14,10 +14,12 @@
 
 <div class="container">
   <div class="row">
-    <% Profile.all.sample(3).each do |profile| %>
+    <% Profile.all.sample(4).each do |profile| %>
+      <div class="col-xs-12 col-sm-4 col col-md-3">
       <%= render 'shared/card', profile: profile %>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 
