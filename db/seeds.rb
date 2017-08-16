@@ -40,15 +40,16 @@ pwd = "123456"
 # Main Users
 %w(Rouge Bleu Vert Noir Rose).each do |color|
   admin = User.new( first_name: "Admin",
-                  last_name: color,
-                  email: "admin@gmail.com",
-                  password: pwd,
+                    last_name: color,
+                    email: "admin.#{color.downcase}@gmail.com",
+                    password: pwd,
                   )
   url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyeisppd1vV8bwCdm-JYZqk5PsykywsqL70zyEV1s_oIAZ-ea43kxl9Es"
   if Rails.env.production?
       admin.photo_url = url
   end
   admin.save
+  puts "admin #{color} created, ID: #{admin.id}"
 end
 streets = [ "rue Massena",
             "rue des Ponts de Comine",
