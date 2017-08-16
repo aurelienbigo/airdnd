@@ -1,9 +1,24 @@
 
-<p> DASHBOARD </p>
+    <div class="profile-header-wrapper">
+      <div class="container profile-header-container text-center">
+        <div class="tabs">
+          <a class="tab active" data-target="#bio">
+            <h3>User</h3>
+          </a>
+          <a class="tab" data-target="#projects">
+            <h3>Developper</h3>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center">
+      <div class="tab-content" id="bio">
+        <%= render "shared/reservation" %>
+      </div>
+      <div class="tab-content hidden" id="projects">
+        <p>Here are my projects.</p>
+      </div>
+    </div>
 
-
-<ul class="nav nav-tabs">
-  <li role="presentation"><a href="#">User</a></li>
-  <li role="presentation"><a href="#">Developper</a></li>
-</ul>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="javascript/tabs.js"></script>
