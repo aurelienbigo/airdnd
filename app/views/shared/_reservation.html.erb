@@ -1,12 +1,14 @@
 <div class="message">
   <%= image_tag_for_user(reservation.profile.user) %>
   <div class="message-name">
+
     <h3><%= reservation.profile.user.first_name %></h3>
     <p><%= reservation.begin_date %></p>
     <% if reservation.status = "Accepté" %>
       <%= link_to "Add Review", new_profile_review_path(reservation.profile.id), class: "btn btn-success" %>
     <% else %>
     <% end %>
+
   </div>
   <div class="message-body">
     <p><strong>Description de la mission</strong></p>
