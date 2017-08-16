@@ -1,0 +1,19 @@
+<%= simple_form_for @profile do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :address, placeholder: 'Rue des moules' %>
+
+  <%= f.input :postcode, placeholder: '6969' %>
+  <%= f.input :city, placeholder: 'Lille' %>
+
+  <%= f.input :phone, placeholder: 'Pose ton 07' %>
+
+  <%= f.input :description, placeholder: 'Parle nous de toi en profondeur.'%>
+
+  <%= f.input :url, placeholder: 'balance ton Git !' %>
+
+  <%= f.submit "Valide ton profil", class: "btn btn-danger" %>
+
+<% end %>
+
+
