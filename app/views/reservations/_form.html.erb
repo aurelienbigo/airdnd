@@ -1,0 +1,17 @@
+
+<div class="col-sx-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+<%= simple_form_for [@profile, @reservation] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :description, placeholder: 'Quelle est la mission ?' %>
+
+  <%= f.input :begin_date, label: 'Date de début' %>
+  <%= f.input :end_date, label: 'Date de fin'%>
+
+
+
+  <%= f.submit "Je réserve", class: "btn btn-danger" %>
+
+<% end %>
+</div>
+
