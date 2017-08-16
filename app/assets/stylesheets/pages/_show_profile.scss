@@ -1,0 +1,39 @@
+body {
+  font-style: helvetica;
+}
+h2{
+  font-size: 34px;
+}
+.profile_content {
+  background-color: white;
+  box-shadow: 1px gray;
+  margin-top: 50px;
+  padding: 10px;
+}
+.portifolio_content {
+  background-color: white;
+  box-shadow: 1px gray;
+  margin-top: 50px;
+  padding: 10px;
+}
+.social_links {
+color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 26px;
+  padding: 15px 90px;
+  color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: gray;
+  }
+}
+.photo_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
