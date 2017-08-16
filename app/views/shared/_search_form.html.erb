@@ -1,6 +1,10 @@
-<%= simple_form_for @profile do |f| %>
-      <%= f.input :city %>
-      <%= f.input :price %>
-      <%= f.input :skill, :colletion => ['Bûcheron style', 'Barbe courte', 'Barbe longue', 'Espadrilles', 'Tong', 'Bonnet', 'Imberbe', 'Tenue de plage', 'Ogre', 'Petit modèle', 'Taille normale', 'Grand modèle', 'Sobre', "Loin d'être sobre"]%>
-      <%= f.submit "Search", class: "btn btn-primary" %>
-      <% end %>
+<div class="container">
+  <%= simple_form_for :search, url: profiles_path, method: 'get'  do |f| %>
+    <div class="row">
+      <div class="col-xs-3 col-sd-3"><%= f.input :city , placeholder: "City" ,label: false%></div>
+      <div class="col-xs-3 col-sd-3"><%= f.input :price , placeholder: "Price" ,label: false%></div>
+      <div class="col-xs-3 col-sd-3"><%= f.input :skill_id, collection: Skill.all , prompt: "Choose a skill", label: false%></div>
+      <div class="col-xs-3 col-sd-3"><%= f.submit "Search", class: "btn btn-primary" %></div>
+    </div>
+  <% end %>
+</div>
