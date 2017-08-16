@@ -1,12 +1,76 @@
-.tab {
+.tabs {
   background: #F4F4F4;
+  display: flex;
+  padding: 10px 100px 0 100px;
+}
+
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+.tabs h3 {
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0;
+}
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+
+.tab {
+  background: #E4E3E9;
   flex: 1 1 auto;
   text-align: center;
   padding: 20px 0;
 }
 
 .tab h3 {
- color : #c2423b;
+ color : #278F75;
+}
+
+.tab:first-child {
+  border-radius: 10px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
+.tab.active {
+  background: white;
+  color: black;
+}
+.tab-content {
+  padding-top: 50px;
+}
+.tab-content p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.profile-header-wrapper {
+  background: #F4F4F4;
+}
+.profile-header-container img {
+  width: 100px;
+  border-radius: 50%;
+}
+.profile-header-container h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+.profile-header-container h2 {
+  color: white;
+  opacity: 0.4;
+  font-size: 18px;
+  font-weight: lighter;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+}
+.profile-header-infos {
+  padding: 20px 0;
 }
 
 .message {
@@ -68,3 +132,8 @@
 .avatar-large {
   border-radius : 50%;
 }
+
+
+
+
+

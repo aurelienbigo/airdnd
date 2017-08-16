@@ -1,2 +1,10 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="col-sx-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+  <%= simple_form_for [@profile, @review] do |f| %>
+
+    <%= f.input :description %>
+    <%= f.input :rating, :colletion => [1, 2, 3, 4, 5]%>
+    <%= f.submit "add a review", class: "btn btn-success" %>
+  <% end %>
+
+</div>
+
