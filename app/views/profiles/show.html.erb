@@ -1,48 +1,25 @@
 <div class="container">
 
-  <div class="container profile_content">
-   <div class="row">
-    <div class="photo_container col-xs-4 col-sd-4 col-sm-4 col-lg-4">
-      <%= image_tag_for_user(@profile.user) %>
-    </div>
-    <div class="profile_infos col-xs-8 col-sd-8 col-sm-8 col-lg-8">
-      
-      <div class="row">
-        <div class="col-xs-6 col-sd-6 col-sm-6 col-lg-6">
-          <h2>
-          <%= @profile.user.first_name %>
-          <%= @profile.user.last_name %>
-          </h2>
-        </div>
-        <div class="col-xs-2 col-sd-2 col-sm-2 col-lg-2">
-          <%= link_to "Book this dev", new_profile_reservation_path(@profile), class: "btn btn-success" %>
-        </div>
-      </div>
-
-      <h3 class="profile_city">
-        city: <%= @profile.city %>
-      </h3>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-sd-12 col-sm-4 col-lg-4">
-        <div class="skills text-center">
-          SKILLS
-        </div>
-        <div class="social_links">
-          <%= link_to '', '', class: "fa fa-github" %>
-          <%= link_to '', '', class: "fa fa-facebook" %>
-          <%= link_to '', '', class: "fa fa-twitter" %>
-          <%= link_to '', '',class: "fa fa-github" %>
-          <%= link_to '', '',class: "fa fa-linkedin" %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sd-12 col-sm-8 col-lg-8">
-        <p class="profile_description">
-          <%= @profile.description %>
-        </p>
-      </div>
-    </div>
+<div class="profil-content">
+  <%= image_tag_for_user(@profile.user) %>
+  <div class="profil-content-name text-center">
+    <h3> <%= @profile.user.first_name %> <%= @profile.user.last_name %> </h3>
+    <div class="social_links">
+      <%= link_to '', '', class: "fa fa-github" %>
+      <%= link_to '', '', class: "fa fa-facebook" %>
+      <%= link_to '', '', class: "fa fa-twitter" %>
+      <%= link_to '', '',class: "fa fa-github" %>
+      <%= link_to '', '',class: "fa fa-linkedin" %>
+  </div>
+  </div>
+  <div class="profil-content-body">
+    <h3><strong><%= @profile.city %></strong></h3>
+    <p>
+      <%= @profile.description  %>
+    </p>
+  </div>
+  <div class="profil-content-call">
+    <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
   </div>
 </div>
 
@@ -70,7 +47,12 @@
     </div>
   </div>
 </div>
+
 </div>
+
+
+
+
 <% content_for(:after_js) do %>
 <%= javascript_tag do %>
 $(document).ready(function() {

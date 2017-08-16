@@ -4,24 +4,59 @@ body {
 h2{
   font-size: 34px;
 }
-.profile_content {
+
+.profil-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
   background-color: white;
-  box-shadow: 1px gray;
   margin-top: 50px;
-  padding: 10px;
 }
-.portifolio_content {
-  background-color: white;
-  box-shadow: 1px gray;
-  margin-top: 50px;
-  padding: 10px;
+.profil-content:last-child {
+  border-bottom: none;
 }
+.profil-content-body {
+  padding: 30px;
+}
+.profil-content-name {
+  padding: 0px 10px;
+  min-width: 250px;
+}
+.profil-content-name h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.profil-content-name p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.profil-content-body {
+  padding-left: 30px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.profil-content-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.profil-content-body p {
+  margin: 6px 0;
+}
+.profil-content-status h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .social_links {
 color: black;
   opacity: 0.15;
   text-decoration: none;
   font-size: 26px;
-  padding: 15px 90px;
+  padding: 10px 0px;
   color: rgba(0,0,0,0.3);
   display: flex;
   align-items: center;
@@ -31,9 +66,4 @@ color: black;
     text-decoration: none;
     color: gray;
   }
-}
-.photo_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
