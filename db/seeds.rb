@@ -126,7 +126,7 @@ wagon_users.each do |user|
     review_count += 1
     review = Review.create!(rating: (1..5).to_a.sample,
                             description: Faker::Lorem.paragraph,
-                            user_id: u.id,
+                            user_id: (1..5).to_a.sample,
                             profile_id: profile.id
                             )
   end
