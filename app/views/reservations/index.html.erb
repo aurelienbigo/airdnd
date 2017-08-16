@@ -20,7 +20,9 @@
     </div>
 
     <div class="container text-center">
-      <%= render "shared/reservation" %>
+      <% @reservations.each do |reservation| %>
+        <%= render "shared/reservation", reservation: reservation %>
+      <% end %>
     </div>
   </div>
 
