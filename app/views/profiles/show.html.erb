@@ -1,38 +1,46 @@
-<div class="container profile_content">
-  <div class="row">
+<div class="container">
+
+  <div class="container profile_content">
+   <div class="row">
     <div class="photo_container col-xs-4 col-sd-4 col-sm-4 col-lg-4">
       <%= image_tag_for_user(@profile.user) %>
     </div>
     <div class="profile_infos col-xs-8 col-sd-8 col-sm-8 col-lg-8">
       <h2>
-      <%= @profile.user.first_name %>
-      <%= @profile.user.last_name %>
+        <%= @profile.user.first_name %>
+        <%= @profile.user.last_name %>
       </h2>
       <h3 class="profile_city">
-      city: <%= @profile.city %>
+        city: <%= @profile.city %>
       </h3>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sd-12 col-sm-4 col-lg-4">
+        <div class="skills text-center">
+          SKILLS
+        </div>
+        <div class="social_links">
+          <%= link_to '', '', class: "fa fa-github" %>
+          <%= link_to '', '', class: "fa fa-facebook" %>
+          <%= link_to '', '', class: "fa fa-twitter" %>
+          <%= link_to '', '',class: "fa fa-github" %>
+          <%= link_to '', '',class: "fa fa-linkedin" %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sd-12 col-sm-8 col-lg-8">
+        <p class="profile_description">
+          <%= @profile.description %>
+        </p>
+      </div>
     </div>
   </div>
 </div>
-<div class="container profile_content">
-  <div class="row">
-    <div class="col-xs-12 col-sd-12 col-sm-4 col-lg-4">
-      <div class="skills text-center">
-        SKILLS
-      </div>
-      <div class="social_links text-center">
-        SHARE THIS ON SOCIAL NETWORK
-      </div>
-    </div>
-    <div class="col-xs-12 col-sd-12 col-sm-8 col-lg-8">
-      <p class="profile_description">
-        <%= @profile.description %>
-      </p>
-    </div>
-  </div>
+
+<div class="portifolio_content">
   <div class="row text-center">
     <div class="col-xs-12">
-      <h2>PORTOFOLIO TO CREATE</h2>
+      <h2>PORTOFOLIO</h2>
     </div>
     <div class="col-xs-12">
       <div class="row">
@@ -53,11 +61,12 @@
     </div>
   </div>
 </div>
+</div>
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @profile_coordinates.to_json %>;
-      alert(profile.lat);
-    });
-  <% end %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+var coord = <%= raw @profile_coordinates.to_json %>;
+alert(profile.lat);
+});
+<% end %>
 <% end %>
