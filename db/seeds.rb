@@ -9,7 +9,6 @@ SkillLvl.destroy_all
 Reservation.destroy_all
 Profile.destroy_all
 User.destroy_all
-puts "************************************************"
 puts 'Database destroyed'
 puts "************************************************"
 puts "Seeding work start"
@@ -34,11 +33,40 @@ skills.each do |skill|
   Skill.create!(name: skill)
 end
 
-puts "************************************************"
 puts "Skills defined"
 puts "************************************************"
 
 pwd = "123456"
+# Main Users
+%w(Rouge Bleu Vert Noir Rose).each do |color|
+  admin = User.new( first_name: "Admin",
+                  last_name: color,
+                  email: "admin@gmail.com",
+                  password: pwd,
+                  )
+  url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyeisppd1vV8bwCdm-JYZqk5PsykywsqL70zyEV1s_oIAZ-ea43kxl9Es"
+  if Rails.env.production?
+      admin.photo_url = url
+  end
+  admin.save
+end
+streets = [ "rue Massena",
+            "rue des Ponts de Comine",
+            "rue de Béthune",
+            "rue de Paris",
+            "rue des Stations",
+            "rue d'Antin",
+            "quai de l'ouest",
+            "avenue du Peuple Belge",
+            "rue de Gand",
+            "rue de la Monnaie",
+            "boulevard de la Liberté",
+            "rue Léon Gambetta",
+            "avenue Oscar Lambret",
+            "rue des Glycines",
+            "rue de l'Asie",
+            "rue du 8 mai 1945"
+          ]
 wagon_users = [
   {first_name: "Aubry", last_name: "Prieur", url: "http://res.cloudinary.com/aurelbigo/image/upload/v1502727666/aubry_qznylg.png" },
   {first_name: "Augustin", last_name: "Poupard", url: "http://res.cloudinary.com/aurelbigo/image/upload/v1502727667/poupard_idskpa.jpg"},
@@ -68,23 +96,25 @@ wagon_users.each do |user|
   url = user[:url]
   review_count = 0
   price = (10..30).to_a.sample
-  # User creation
+  # Developper creations
   u = User.new( first_name: first_name,
-                    last_name: last_name,
-                    # photo: photo,
-                    email: "#{first_name}.#{last_name.gsub(" ", "-")}@gmail.com",
-                    password: pwd
-                    )
-  u.photo_url = url
+                last_name: last_name,
+                # photo: photo,
+                email: "#{first_name}.#{last_name.gsub(" ", "-")}666@gmail.com",
+                password: pwd
+                )
+  if Rails.env.production?
+    u.photo_url = url
+  end
   u.save!
   print first_name + " " + last_name + " was born"
   # Profile creation
   profile = Profile.create!(price: price,
                             url: "www.lewagon.org",
                             description: Faker::Lorem.paragraph(2..5),
-                            address: Faker::Address.street_address,
-                            city: Faker::Address.city,
-                            postcode: (10000..99000).to_a.sample,
+                            address: "#{(1..30).to_a.sample} #{streets.sample}",
+                            city: "Lille",
+                            postcode: "59800",
                             phone: "0320304050",
                             lng: 0.00,
                             lat: 0.00,
