@@ -1,6 +1,6 @@
-<div class="message">
+<div class="reservation">
   <%= image_tag_for_user(reservation.profile.user) %>
-  <div class="message-name">
+  <div class="reservation-name">
     <h3><%= reservation.profile.user.first_name %></h3>
     <p><%= reservation.begin_date %></p>
     <% if reservation.status = "Accepté" %>
@@ -8,19 +8,16 @@
     <% else %>
     <% end %>
   </div>
-  <div class="message-body">
+  <div class="reservation-body">
     <p><strong>Description de la mission</strong></p>
     <p>
       <%= reservation.description %>
     </p>
   </div>
-  <div class="message-status">
+  <div class="reservation-status">
     <p class="status pending"><%= reservation.status %></p>
     <p class="price"><%= reservation.price %></p>
   </div>
 
 
 </div>
-
-
-
