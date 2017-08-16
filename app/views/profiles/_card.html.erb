@@ -1,0 +1,16 @@
+<div class="card_box">
+  <div class="card">
+    <div class="card-photo">
+      <%= image_tag_for_user(profile.user) %>
+    </div>
+    <div class="card-description">
+      <h2> <%= profile.user.first_name %> </h2>
+      <p><%= profile.city %></p>
+    </div>
+    <%= link_to '', profile_path(profile), class: "card-link" %>
+  </div>
+</div>
+
+
+
+
