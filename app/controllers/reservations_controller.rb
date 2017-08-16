@@ -16,9 +16,9 @@ class ReservationsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @reservation = Reservation.new(reservation_params)
     @reservation.profile = @profile
-
+    @reservation.user = current_user
     if @reservation.save
-      redirect_to reservation_path(@profile)
+      redirect_to reservations_path
     else
       render :new
     end
