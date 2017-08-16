@@ -1,11 +1,30 @@
+  ul {
+list-style:none;
+margin-left:0;
+padding-left:0;
+}
+
+li {
+margin-bottom:10px;
+display: inline;
+margin: 2px;
+}
+
+.fa.full-star{
+  color: #278f75;
+}
+
+.fa.fa-beer{
+  color: #FFDC36;
+}
+
 .card {
   height: 200px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
+  background-color: white;
   color: black;
   position: relative;
-  border: 1px solid black;
   margin-bottom: 25px;
 }
 .card-user {
@@ -17,6 +36,7 @@
 }
 .card-photo {
   position: absolute;
+  height: 100%;
   top: 15px;
   left: 15px;
   text-transform: uppercase;
@@ -26,11 +46,12 @@
 }
 .card-description {
   position: absolute;
-  bottom: 100px;
-  left: 140px;
+  height: 100%;
+  top: 15px;
+  left: 130px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 20px;
 }
 .card-description p {
   font-size: 14px;
