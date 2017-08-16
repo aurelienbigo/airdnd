@@ -10,9 +10,10 @@ class ReviewsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @review = Review.new(review_params)
     @review.profile = @profile
+    @review.user = current_user
 
     if @review.save
-        redirect_to profile_path(@profile)
+        redirect_to reservations_path
     else
       render :new
     end
