@@ -1,8 +1,13 @@
 <div class="message">
+
   <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
   <div class="message-name">
     <h3>Gab Dehan</h3>
     <p>10/07/17</p>
+    <% if status: "pending" %>
+      <button type="button" class="your-class btn btn-lg btn-success">Add Review</button>
+    <% else %>
+    <% end %>
   </div>
   <div class="message-body">
     <p><strong> XX Project!</strong></p>
@@ -14,4 +19,20 @@
     <p class="status pending">Pending</p>
     <p class="price">€345</p>
   </div>
+
+
 </div>
+
+
+<!--
+ <% if action: "new" %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Post Job' %>
+    </div>
+  <% else %>
+    <div class="form-actions">
+      <%= f.button :submit, 'Update Job' %>
+    </div>
+  <% end %>
+
+  <%= f.review_button :start_year, :class=> "btn", :value=> '2007', :checked => Proc.new { @dates.start_year == 2007 ? true : false } %> 2007 -->
