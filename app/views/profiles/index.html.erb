@@ -7,7 +7,9 @@
   <div class="container_card">
     <div class="row">
       <% Profile.all.each do |profile| %>
+      <div class="col-xs-12 col-sm-6 col col-md-4">
       <%= render "shared/card", profile: profile %>
+      </div>
       <% end %>
     </div>
   </div>
