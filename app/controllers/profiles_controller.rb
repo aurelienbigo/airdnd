@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit]
   before_action :set_skills, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @profiles = Profile.all
