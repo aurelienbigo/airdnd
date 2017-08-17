@@ -1,10 +1,10 @@
 <div class="container">
   <%= simple_form_for :search, url: profiles_path, method: 'get'  do |f| %>
     <div class="row">
-      <div class="col-xs-3 col-sm-3"><%= f.input :city , placeholder: "City" ,label: false%></div>
-      <div class="col-xs-3 col-sm-3"><%= f.input :price , placeholder: "Price" ,label: false%></div>
-      <div class="col-xs-3 col-sm-3"><%= f.input :skill_id, collection: Skill.all , prompt: "Choose a skill", label: false%></div>
-      <div class="col-xs-3 col-sm-3"><%= f.submit "Search", class: "btn btn-success" %></div>
+      <div class="col-xs-12 col-sm-3"><%= f.input :city , placeholder: "City" ,label: false%></div>
+      <div class="col-xs-12 col-sm-3"><%= f.input :price , placeholder: "Price" ,label: false%></div>
+      <div class="col-xs-12 col-sm-3"><%= f.input :skill_id, collection: Skill.all , prompt: "Choose a skill", label: false%></div>
+      <div class="col-xs-12 col-sm-3"><%= f.submit "Search", class: "btn btn-success" %></div>
     </div>
   <% end %>
 </div>

@@ -20,6 +20,7 @@ margin: 2px;
 
 .card {
   height: 200px;
+  width: 330px;
   background-size: cover !important;
   background-position: center;
   background-color: white;
@@ -37,8 +38,8 @@ margin: 2px;
 .card-photo {
   position: absolute;
   height: 100%;
-  top: 15px;
-  left: 15px;
+  top: 40px;
+  left: 25px;
   text-transform: uppercase;
 }
 .card-avatar {
@@ -47,8 +48,8 @@ margin: 2px;
 .card-description {
   position: absolute;
   height: 100%;
-  top: 15px;
-  left: 130px;
+  top: 5px;
+  left: 160px;
 }
 .card-description h2 {
   font-size: 20px;
