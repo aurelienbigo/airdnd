@@ -6,13 +6,9 @@
     <div class="card-description">
       <h2> <%= profile.user.first_name %> </h2>
       <p><%= profile.city %></p>
-        <ul>
-          <li><i class="fa fa-star full-star" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star full-star" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star full-star" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star full-star" aria-hidden="true"></i></li>
-          <li><i class="fa fa-star grey-star color="grey" aria-hidden="true"></i></li>
-        </ul>
+
+      <%= render 'shared/stars_card', profile: profile %>
+
       <p><strong>Prix : <%= profile.price %></strong> <i class="fa fa-beer" aria-hidden="true"></i></p>
     </div>
     <%= link_to '', profile_path(profile), class: "card-link" %>

@@ -1,0 +1,8 @@
+<% moyenne = (profile.reviews.map { |r| r.rating }.reduce(:+) / profile.reviews.count) %>
+<% moyenne.round(0).times do %>
+  <i class="fa fa-star full-star"></i>
+<% end %>
+<% (5 - moyenne.round(0)).times do %>
+  <i class="fa fa-star grey-star"></i>
+<% end %>
+

@@ -14,7 +14,7 @@
           <%= @profile.user.last_name %>
           </h2>
         </div>
-        <div class="col-xs-2 col-sd-2 col-sm-2 col-lg-2">
+        <div class="col-xs-2 col-sd-2 col-sm-2 col-lg-2 align-center">
           <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
         </div>
       </div>
@@ -85,10 +85,10 @@
 
 
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$(document).ready(function() {
-var coord = <%= raw @profile_coordinates.to_json %>;
-alert(profile.lat);
+  <%= javascript_tag do %>
+  $(document).ready(function() {
+  var coord = <%= raw @profile_coordinates.to_json %>;
+  alert(profile.lat);
 });
 <% end %>
 <% end %>
