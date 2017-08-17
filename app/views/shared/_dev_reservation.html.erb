@@ -14,8 +14,11 @@
     </p>
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-status">
-    <button class="btn btn-success">Accepter</button>
-    <button class="btn btn-danger">Refuser</button>
+    <p><%= reservation.status %><p>
+    <% if reservation.status == "En attente" %>
+      <button class="btn btn-success">Accepter</button>
+      <button class="btn btn-danger">Refuser</button>
+    <% end %>
   </div>
 </div>
 

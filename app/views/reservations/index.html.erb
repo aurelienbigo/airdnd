@@ -1,27 +1,37 @@
 
 <div class="profile-header-wrapper">
   <div class="container profile-header-container text-center">
-  <div class="tabs">
-      <a class="tab active" data-target="#user">
-        <h3>User</h3>
-      </a>
-      <a class="tab" data-target="#developper" >
-        <h3>Developper</h3>
-      </a>
+    <h2>Gestion des collaborations</h2>
+    <div class="tabs">
+      <% if Profile.all.where(user: current_user).nil? %>
+        <a class="tab active" data-target="#user" >
+          <h3>Mes projets</h3>
+        </a>
+      <% else %>
+        <a class="tab" data-target="#user" >
+          <h3>Mes projets</h3>
+        </a>
+      <% end %>
+      <% if Profile.all.where(user: current_user).nil? %>
+        <!-- <div class="text-center"> -->
+          <%= link_to 'Créer un profil dev', new_profile_path, class: 'btn btn-success' %>
+        <!-- </div> -->
+      <% else %>
+        <a class="tab active" data-target="#developper" >
+          <h3>Mes propositions</h3>
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="tab-content" id="user">`
-    <% @reservations.each do |reservation| %>
+  <div class="tab-content" id="user">
+    <% @reservations.where(user: current_user).each do |reservation| %>
       <%= render "shared/reservation", reservation: reservation %>
     <% end %>
   </div>
-  <div class="tab-content hidden col-xs-12" id="developper">
-    <div class="text-center">
-      <%= link_to 'Create your dev profile', new_profile_path, class: 'btn btn-success' %>
-    </div>
+  <div class="tab-content col-xs-12" id="developper">
       <% @reservations.each do |reservation| %>
         <%= render "shared/dev_reservation", reservation: reservation %>
       <% end %>
