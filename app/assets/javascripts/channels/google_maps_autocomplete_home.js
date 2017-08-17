@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var profile_address = $('#profile_address').get(0);
+  var profile_address = $('#search_city').get(0);
 
   if (profile_address) {
     var autocomplete = new google.maps.places.Autocomplete(profile_address, { types: ['geocode'] });
@@ -16,9 +16,7 @@ function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  $('#profile_address').trigger('blur').val(components.address);
-  $('#profile_postcode').val(components.zip_code);
-  $('#profile_city').val(components.city);
+  $('#search_city').trigger('blur').val(components.address);
   if (components.country_code) {
     $('#profile_country').val(components.country_code);
   }
