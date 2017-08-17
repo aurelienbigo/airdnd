@@ -17,6 +17,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.profile = @profile
     @reservation.user = current_user
+    @reservation.status = "En Attente"
     if @reservation.save
       redirect_to reservations_path
     else
