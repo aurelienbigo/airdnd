@@ -110,11 +110,13 @@ wagon_users.each do |user|
   u.save!
   print first_name + " " + last_name + " was born"
   # Profile creation
+city = ["Lille", "Paris"]
+
   profile = Profile.create!(price: price,
                             url: "www.lewagon.org",
                             description: Faker::Lorem.paragraph(2..5),
                             address: "#{(1..30).to_a.sample} #{streets.sample}",
-                            city: "Lille",
+                            city: city.sample,
                             postcode: "59800",
                             phone: "0320304050",
                             lng: 0.00,
