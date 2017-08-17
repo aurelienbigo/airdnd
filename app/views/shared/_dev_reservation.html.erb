@@ -17,13 +17,15 @@
     </p>
   </div>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-status">
+    <h3>Statut</h3>
     <p><%= reservation.status %><p>
     <% if reservation.status == "En attente" %>
-      <button class="btn btn-success">Accepter</button>
-      <button class="btn btn-danger">Refuser</button>
+      <button class="btn btn-success" id="accept">
+        Accepter
+      </button>
+      <button class="btn btn-danger" id="decline">
+        Refuser
+      </button>
     <% end %>
   </div>
 </div>
-
-
-

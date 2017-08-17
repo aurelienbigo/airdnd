@@ -1,15 +1,15 @@
 
 <div class="profile-header-wrapper">
   <div class="container profile-header-container text-center">
-    <h2>Gestion des collaborations</h2>
+    <h2>Tableau de bord</h2>
     <div class="tabs">
       <% if @user.profile.nil? %>
         <a class="tab active" data-target="#user" >
-          <h3>Mes projets</h3>
+          <h3>Propositions faites</h3>
         </a>
       <% else %>
         <a class="tab" data-target="#user" >
-          <h3>Mes projets</h3>
+          <h3>Propositions faites</h3>
         </a>
       <% end %>
       <% if @user.profile.nil? %>
@@ -18,7 +18,7 @@
         <!-- </div> -->
       <% else %>
         <a class="tab active" data-target="#developper" >
-          <h3>Mes propositions</h3>
+          <h3>Propositions reçues</h3>
         </a>
       <% end %>
     </div>
