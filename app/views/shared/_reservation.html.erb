@@ -1,8 +1,12 @@
 <div class="row reservation">
   <%= image_tag_for_user(reservation.profile.user) %>
   <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-name">
-    <h3><%= reservation.profile.user.first_name %></h3>
-    <p><%= reservation.begin_date %></p>
+    <h3>
+      <%= reservation.profile.user.first_name %>
+      <%= reservation.profile.user.last_name %>
+    </h3>
+    <p class="reservation_date"><%= reservation.begin_date %></p>
+    <p class="reservation_date"><%= reservation.end_date %></p>
     <% if reservation.status == "Terminé" %>
       <%= link_to "Add Review", new_profile_review_path(reservation.profile.id), class: "btn btn-success" %>
     <% end %>

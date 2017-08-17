@@ -1,11 +1,17 @@
 .reservation_date {
   font-size: 0.7em;
+  margin: 0 auto;
 }
 .reservation {
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: 10px;
+  padding: 15px 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px gray;
 }
 .reservation h3 {
   font-size: 1em;
   font-weight: bold;
+  margin: 0 0 10px 0;
 }

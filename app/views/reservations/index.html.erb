@@ -24,7 +24,7 @@
     </div>
   </div>
 </div>
-<div class="container col-xs-12">
+<div class="container reservations col-xs-12">
   <div class=<%= @user.profile.nil? ? "tab-content col-xs-12" : "tab-content col-xs-12 hidden" %> id="user">
     <% @user.reservations.each do |reservation| %>
       <%= render "shared/reservation", reservation: reservation %>
