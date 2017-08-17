@@ -3,13 +3,13 @@
     <div class="card-photo">
       <%= image_tag_for_user(profile.user) %>
     </div>
-    <div class="card-description">
+    <div class="card-description" align="left">
       <h2> <%= profile.user.first_name %> </h2>
       <p><%= profile.city %></p>
 
       <%= render 'shared/stars_card', profile: profile %>
 
-      <p><strong>Prix : <%= profile.price %></strong> <i class="fa fa-beer" aria-hidden="true"></i></p>
+      <h4><strong>Prix : <%= profile.price %></strong> <i class="fa fa-beer" aria-hidden="true"></i></h4>
     </div>
     <%= link_to '', profile_path(profile), class: "card-link" %>
   </div>
