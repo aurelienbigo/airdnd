@@ -43,7 +43,7 @@ h2{
 }
 .reviews_profile {
   background-color: white;
-  padding: 10px 100px 0 100px;
+  padding: 10px 10px 0 10px;
 }
 .review {
   background: #F4F4F4;
@@ -51,8 +51,8 @@ h2{
   align-items: center;
   justify-content: space-around;
   margin-top: 5px;
-  margin-bottom: 5px;
-  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
 }
 .review-content {
@@ -63,4 +63,14 @@ h2{
 }
 .grey-star {
   color: gray;
+}
+.skills-name {
+  color: #32B796;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 5px 10px;
+  border: solid 1px #32B796;
+}
+.user-infos {
+
 }

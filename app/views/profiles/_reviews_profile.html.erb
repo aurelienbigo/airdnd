@@ -1,15 +1,17 @@
 
 <div class="row review">
-  <div class="cols-xs-2 col-sm-2 col-md-2 col-lg-2">
-    <%= review.user.first_name %>
+  <div class="cols-xs-12 col-sm-4 col-md-2 col-lg-2 user-infos">
+    <p class="avatar-lg" align="center"><%= image_tag_for_user(@profile.user) %></p>
+    <p align="center"><%= link_to review.user.first_name, profile_path(@profile) %></p>
   </div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 review-body">
-    <p><strong>Description de la review</strong></p>
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 review-body">
+    <p><strong>Commentaire</strong></p>
     <p>
       <%= review.description %>
     </p>
   </div>
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 review-rating">
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 review-rating">
+    <p><strong>Note</strong></p>
     <% if review.rating == 1 %>
       <%= link_to '', '', class: "fa fa-star full-star" %>
       <%= link_to '', '', class: "fa fa-star grey-star" %>

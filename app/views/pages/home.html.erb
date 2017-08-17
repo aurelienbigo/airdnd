@@ -7,9 +7,9 @@
     <div class="container">
       <%= simple_form_for :search, url: profiles_path, method: 'get'  do |f| %>
       <div class="row">
-        <div class="col-xs-3 col-sm-6"><%= f.input :city , placeholder: "Ville" ,label: false%>
+        <div class="col-xs-12 col-sm-8"><%= f.input :city , placeholder: "Ville" ,label: false%>
         </div>
-        <div class="col-xs-3 col-sm-6"><%= f.submit "Go !", class: "btn btn-success" %>
+        <div class="col-xs-12 col-sm-4"><%= f.submit "Go !", class: "btn btn-success" %>
         </div>
       </div>
       <% end %>
