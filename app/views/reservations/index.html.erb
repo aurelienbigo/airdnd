@@ -3,7 +3,7 @@
   <div class="container profile-header-container text-center">
     <h2>Gestion des collaborations</h2>
     <div class="tabs">
-      <% if Profile.all.where(user: current_user).nil? %>
+      <% if @user.profile.nil? %>
         <a class="tab active" data-target="#user" >
           <h3>Mes projets</h3>
         </a>
@@ -12,9 +12,9 @@
           <h3>Mes projets</h3>
         </a>
       <% end %>
-      <% if Profile.all.where(user: current_user).nil? %>
+      <% if @user.profile.nil? %>
         <!-- <div class="text-center"> -->
-          <%= link_to 'Créer un profil dev', new_profile_path, class: 'btn btn-success' %>
+          <%= link_to 'Créer un profil dev', new_profile_path, class: 'tab', id: 'profile_creation' %>
         <!-- </div> -->
       <% else %>
         <a class="tab active" data-target="#developper" >
@@ -24,19 +24,21 @@
     </div>
   </div>
 </div>
-
-<div class="container">
-  <div class="tab-content" id="user">
-    <% @reservations.where(user: current_user).each do |reservation| %>
+<div class="container reservations col-xs-12">
+  <div class=<%= @user.profile.nil? ? "tab-content col-xs-12" : "tab-content col-xs-12 hidden" %> id="user">
+    <% @user.reservations.each do |reservation| %>
       <%= render "shared/reservation", reservation: reservation %>
     <% end %>
   </div>
-  <div class="tab-content col-xs-12" id="developper">
-      <% @reservations.each do |reservation| %>
-        <%= render "shared/dev_reservation", reservation: reservation %>
+  <div class=<%= @user.profile.nil? ? "tab-content col-xs-12 hidden" : "tab-content col-xs-12" %> id="developper">
+      <% unless @user.profile.nil? %>
+        <% @user.profile.reservations.each do |reservation| %>
+          <%= render "shared/dev_reservation", reservation: reservation %>
+        <% end %>
       <% end %>
   </div>
 </div>
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
