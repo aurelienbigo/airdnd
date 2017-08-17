@@ -2,19 +2,33 @@
   <div class="banner-content">
     <h1> Loue ton DEV </h1>
     <p> pour une bouchée de pain </p>
-    <%= render partial: 'shared/search_form' %>
+
+
+    <div class="container">
+      <%= simple_form_for :search, url: profiles_path, method: 'get'  do |f| %>
+      <div class="row">
+        <div class="col-xs-3 col-sm-6"><%= f.input :city , placeholder: "Ville" ,label: false%>
+        </div>
+        <div class="col-xs-3 col-sm-6"><%= f.submit "Go !", class: "btn btn-success" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
     <% Profile.all.sample(4).each do |profile| %>
-      <div class="col-xs-12 col-sm-4 col col-md-3">
+    <div class="col-xs-12 col-sm-4 col col-md-3">
       <%= render 'shared/card', profile: profile %>
-      </div>
+    </div>
     <% end %>
   </div>
 </div>
+
+
+
 
 
 
