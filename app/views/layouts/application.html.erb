@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="src/css/swipebox.css">
   </head>
   <body>
     <%= render 'shared/navbar' %>
@@ -18,5 +19,19 @@
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
     <%= cloudinary_js_config %>
+    <script src="lib/jquery-2.0.3.js"></script>
+    <script src="src/js/jquery.swipebox.js"></script>
+    <script type="text/javascript">
+    ;( function( $ ) {
+    $( '.swipebox' ).swipebox();
+    } )( jQuery );
+    $( '#gallery' ).click( function( e ) {
+    e.preventDefault();
+    $.swipebox( [
+    { href:'big/image1.jpg', title:'My Caption' },
+    { href:'big/image2.jpg', title:'My Second Caption' }
+    ] );
+    } );
+    </script>
   </body>
 </html>
