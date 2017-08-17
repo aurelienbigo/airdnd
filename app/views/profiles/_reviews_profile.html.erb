@@ -1,0 +1,46 @@
+
+<div class="row review">
+  <div class="cols-xs-2 col-sm-2 col-md-2 col-lg-2">
+    <%= review.user.first_name %>
+  </div>
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 review-body">
+    <p><strong>Description de la review</strong></p>
+    <p>
+      <%= review.description %>
+    </p>
+  </div>
+  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 review-rating">
+    <% if review.rating == 1 %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+    <% elsif review.rating == 2 %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+    <% elsif review.rating == 3 %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+    <% elsif review.rating == 4 %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star grey-star" %>
+    <% elsif review.rating == 5 %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+      <%= link_to '', '', class: "fa fa-star full-star" %>
+<% end %>
+
+  </div>
+</div>

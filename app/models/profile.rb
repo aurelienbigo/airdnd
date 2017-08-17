@@ -4,6 +4,7 @@ class Profile < ApplicationRecord
 
   belongs_to :user
   has_many :skill_lvls
+  has_many :skills , through: :skill_lvls
   has_many :reviews
   has_many :reservations
 

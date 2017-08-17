@@ -20,6 +20,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
+
+    @skills = @profile.skills
     @profile_coordinates = { lat: @profile.lat, lng: @profile.lng }
   end
 

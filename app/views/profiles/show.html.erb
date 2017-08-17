@@ -6,7 +6,7 @@
       <%= image_tag_for_user(@profile.user) %>
     </div>
     <div class="profile_infos col-xs-8 col-sd-8 col-sm-8 col-lg-8">
-      
+
       <div class="row">
         <div class="col-xs-6 col-sd-6 col-sm-6 col-lg-6">
           <h2>
@@ -15,19 +15,22 @@
           </h2>
         </div>
         <div class="col-xs-2 col-sd-2 col-sm-2 col-lg-2">
-          <%= link_to "Book this dev", new_profile_reservation_path(@profile), class: "btn btn-success" %>
+          <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
         </div>
       </div>
 
       <h3 class="profile_city">
-        city: <%= @profile.city %>
+        <%= @profile.city %>
       </h3>
     </div>
 
     <div class="row">
       <div class="col-xs-12 col-sd-12 col-sm-4 col-lg-4">
         <div class="skills text-center">
-          SKILLS
+          <p>my skills</p>
+          <% @skills.each do |skill| %>
+          <%= skill.name %>
+          <% end %>
         </div>
         <div class="social_links">
           <%= link_to '', '', class: "fa fa-github" %>
@@ -46,31 +49,41 @@
   </div>
 </div>
 
-<div class="portifolio_content">
+
+<div class="container profile_content">
   <div class="row text-center">
     <div class="col-xs-12">
-      <h2>PORTOFOLIO</h2>
-    </div>
-    <div class="col-xs-12">
-      <div class="row">
-        <% @profile.reviews.each do |review| %>
-        <div class="review_card col-xs-12">
-          <div class="col-xs-2">
-            <p><%= review.user.first_name %></p>
-          </div>
-          <div class="col-xs-8">
-            <p><%= review.description %></p>
-          </div>
-          <div class="col-xs-2">
-            <p><%= review.rating %></p>
-          </div>
-        </div>
-        <% end %>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+    <h2 align="center">PORTOFOLIO</h2>
+    <div class="container" align="center">
+      <!-- Gallery 1 -->
+      <a rel="gallery-1" href="http://lorempixel.com/900/600/sports/1/" class="swipebox">
+        <img src="http://lorempixel.com/300/200/sports/1/" alt="image">
+      </a>
+      <a rel="gallery-1" href="http://lorempixel.com/900/600/sports/2/" class="swipebox">
+        <img src="http://lorempixel.com/300/200/sports/2/" alt="image">
+      </a>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container profile_content">
+  <div class="reviews_profile">
+    <div class="review-content">`
+      <% @profile.reviews.each do |review| %>
+        <%= render 'reviews_profile', review: review %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
+</div>
+
+
 <% content_for(:after_js) do %>
 <%= javascript_tag do %>
 $(document).ready(function() {

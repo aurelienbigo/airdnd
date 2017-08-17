@@ -121,6 +121,12 @@ wagon_users.each do |user|
                             lat: 0.00,
                             user_id: u.id
                             )
+# skill level creation
+  skill_level = SkillLvl.create!(profile: profile.sample,
+                                lvl: (1..5).to_a.sample,
+                                skill_id: skills.id.sample,
+                  )
+
   print " and has now a profile,"
   # Reviews creation
   (3..13).to_a.sample.times do
