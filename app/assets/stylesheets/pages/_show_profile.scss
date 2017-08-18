@@ -31,10 +31,10 @@ h2{
   color: rgba(0,0,0,0.3);
 }
 .social_links a:hover {
-    opacity: 1;
-    text-decoration: none;
-    color: gray;
-  }
+  opacity: 1;
+  text-decoration: none;
+  color: gray;
+}
 
 .photo_container {
 
@@ -73,4 +73,7 @@ h2{
 }
 .competence {
   text-align: center;
+}
+.buton {
+  display: inline-block;
 }

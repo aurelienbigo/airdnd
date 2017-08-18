@@ -30,9 +30,14 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    @skills = SkillLvl.new
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-    @profile.save
+     if @profile.save
+      redirect_to profile_path(@profile)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -67,6 +72,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:price, :url, :description, :phone, :address)
+    params.require(:profile).permit(:price, :url, :description, :phone, :address, :postcode, :city, :skill_id)
   end
 end
