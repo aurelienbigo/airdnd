@@ -8,6 +8,8 @@
 
   <%= f.input :phone, placeholder: 'Pose ton 07' %>
 
+  <%= f.input :skills, collection: Skill.all , prompt: "A propos de toi", label: false %>
+
   <%= f.input :description, placeholder: 'Parle nous de toi en profondeur.'%>
   <%= f.input :price, placeholder: 'Nombre de pintes par jour'%>
 

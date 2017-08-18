@@ -110,7 +110,7 @@ wagon_users.each do |user|
   u.save!
   print first_name + " " + last_name + " was born"
   # Profile creation
-city = ["Lille", "Paris"]
+  city = ["Lille", "Paris"]
 
   profile = Profile.create!(price: price,
                             url: "www.lewagon.org",
