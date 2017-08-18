@@ -1,31 +1,35 @@
+
+
+
 <div class="row reservation">
-  <div class="cols-xs-2 col-sm-2 col-md-2 col-lg-2">
-    <%= image_tag_for_user(reservation.user) %>
+
+  <div class="cols-xs-12 col-sm-3 col-md-2 col-lg-2 user-infos" align="center">
+    <p class="avatar-lg"><%= image_tag_for_user(reservation.user) %></p>
   </div>
-  <div class="cols-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-name">
-    <h3>
-      <%= reservation.user.first_name %>
-      <%= reservation.user.last_name %>
-    </h3>
-    <p class="reservation_date">Du <%= reservation.begin_date %></p>
-    <p class="reservation_date">Au <%= reservation.end_date %></p>
+
+  <div class="cols-xs-12 col-sm-3 col-md-4 col-lg-4 reservation-name" align="center">
+    <p><strong>Demande de réservation par : <%= reservation.user.first_name %> <%= reservation.user.last_name %></strong></p>
+    <p>Du <%= reservation.begin_date %> au <%= reservation.end_date %></p>
   </div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 reservation-body">
-    <h3>Description de la mission</h3>
-    <p>
-      <%= reservation.description %>
-    </p>
+
+  <div class="col-xs-12 col-sm-3 col-md-4 col-lg-4 reservation-body" align="center">
+    <p><strong>Description de la mission</strong></p>
+    <p><%= reservation.description %></p>
   </div>
-  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 reservation-status">
-    <h3>Statut</h3>
-    <p><%= reservation.status %><p>
-    <% if reservation.status == "En attente" %>
-      <button class="btn btn-success" id="accept">
+
+  <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 reservation-status" align="center">
+  <p>Statut : <strong><%= reservation.status %></strong></p>
+    <% if reservation.status == "En Attente" %>
+      <button class="btn btn-success" id="accept" align="center">
         Accepter
       </button>
-      <button class="btn btn-danger" id="decline">
+      <button class="btn btn-danger" id="decline" align="center">
         Refuser
       </button>
     <% end %>
-  </div>
 </div>
+
+</div>
+
+
+
