@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
       @profiles = Profile.joins(:skills).where(skills: {id: @skill})
     end
     if @city != ''
-      @profiles = @profiles.all.where(city: @city)
+      @profiles = @profiles.all.where(city: @city.capitalize)
     end
     if @price > 0
       @profiles = @profiles.where(price: @price)
