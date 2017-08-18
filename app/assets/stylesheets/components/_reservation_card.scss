@@ -1,17 +1,38 @@
+p {
+  text-align: left;
+}
 .reservation_date {
   font-size: 0.7em;
   margin: 0 auto;
 }
-.reservation {
-  // border: 1px solid black;
-  margin: 10px;
-  padding: 15px 0;
+
+
+.reviews_profile {
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 4px gray;
+  padding: 10px 10px 0 10px;
 }
-.reservation h3 {
-  font-size: 1em;
-  font-weight: bold;
-  margin: 0 0 10px 0;
+.reservation {
+  background: #F4F4F4;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 5px 10px;
+}
+.reservation-body {
+
+}
+.reservation-name {
+
+}
+.reservation-status {
+
+}
+#accept {
+  margin-bottom: 5px;
+}
+.user-infos {
+  padding-left: 35px;
+}
+.last-children {
+  margin-bottom: 50px;
 }
