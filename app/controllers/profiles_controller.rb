@@ -4,14 +4,19 @@ class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    lat = params[:lat]
-    lng = params[:lng]
-    if lat.blank? || lng.blank?
-      @profiles = Profile.where.not(lat: nil, lng: nil)
-    else
-      @profiles = Profile.near([lat, lng], 20)
+    @city = params[:search][:city].gsub(/,.*/,"")
+    @price = params[:search][:price].to_i
+    @skill = params[:search][:skill].to_i
+    @profiles = Profile.all
+    unless @skill == 0 || nil
+      @profiles = Profile.joins(:skills).where(skills: {id: @skill})
     end
-
+    if @city != ''
+      @profiles = @profiles.all.where(city: @city)
+    end
+    if @price > 0
+      @profiles = @profiles.where(price: @price)
+    end
     @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
       marker.lat profile.lat
       marker.lng profile.lng
@@ -20,7 +25,6 @@ class ProfilesController < ApplicationController
   end
 
   def show
-
     @skills = @profile.skills
     @profile_coordinates = { lat: @profile.lat, lng: @profile.lng }
   end
