@@ -2,7 +2,7 @@
 
   <div class="container profile_content">
    <div class="row">
-    <div class="photo_container col-xs-12 col-sd-4 col-sm-4 col-lg-4">
+    <div class="photo_container col-xs-12 col-sd-4 col-sm-4 col-lg-4" align="center">
       <%= image_tag_for_user(@profile.user) %>
     </div>
     <div class="profile_infos col-xs-12 col-sm-8 col-md-8 col-lg-8">
@@ -14,8 +14,12 @@
           <%= @profile.user.last_name %>
           </h2>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-6 col-lg-6" align="right">
-          <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
+        <div class="col-xs-12 col-sm-3 col-md-6 col-lg-6 buton" align="right">
+          <% if current_user.profile.id == @profile.id %>
+            <%= link_to "Editer", edit_profile_path(@profile), class: "btn btn-success" %>
+          <% else %>
+            <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
+            <% end %>
         </div>
       </div>
 
@@ -26,8 +30,8 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        <div class="skills text-center">
-          <p>Compétences</p>
+        <div class="skills" align="center">
+          <p class="competence">Compétences</p>
           <% @skills.each do |skill| %>
           <div class="skills-name"><%= skill.name %></div>
           <% end %>
@@ -60,11 +64,11 @@
     <h2 align="center">PORTOFOLIO</h2>
     <div class="container" align="center">
       <!-- Gallery 1 -->
-      <a rel="gallery-1" href="http://lorempixel.com/900/600/sports/1/" class="swipebox">
-        <img src="http://lorempixel.com/300/200/sports/1/" alt="image">
+      <a rel="gallery-1" href="http://lorempixel.com/900/600/technics" class="swipebox">
+        <img src="http://lorempixel.com/300/200/technics" alt="image">
       </a>
-      <a rel="gallery-1" href="http://lorempixel.com/900/600/sports/2/" class="swipebox">
-        <img src="http://lorempixel.com/300/200/sports/2/" alt="image">
+      <a rel="gallery-1" href="http://lorempixel.com/900/600/people" class="swipebox">
+        <img src="http://lorempixel.com/300/200/people" alt="image">
       </a>
       </div>
     </div>
@@ -73,8 +77,8 @@
 
 <div class="container profile_content">
 <h3 align="center">COMMENTAIRES</h3>
-  <div class="reviews_profile">
-    <div class="review-content">`
+  <div class="reviews_profile" align="center">
+    <div class="review-content" align="center">`
       <% @profile.reviews.each do |review| %>
         <%= render 'reviews_profile', review: review %>
       <% end %>

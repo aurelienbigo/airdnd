@@ -4,13 +4,13 @@
     <p class="avatar-lg" align="center"><%= image_tag_for_user(@profile.user) %></p>
     <p align="center"><%= link_to review.user.first_name, profile_path(@profile) %></p>
   </div>
-  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 review-body">
+  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 review-body" align="center">
     <p><strong>Commentaire</strong></p>
     <p>
       <%= review.description %>
     </p>
   </div>
-  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 review-rating">
+  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 review-rating" align="center">
     <p><strong>Note</strong></p>
     <% if review.rating == 1 %>
       <%= link_to '', '', class: "fa fa-star full-star" %>

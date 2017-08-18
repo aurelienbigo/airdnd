@@ -31,35 +31,31 @@ h2{
   color: rgba(0,0,0,0.3);
 }
 .social_links a:hover {
-    opacity: 1;
-    text-decoration: none;
-    color: gray;
-  }
+  opacity: 1;
+  text-decoration: none;
+  color: gray;
+}
 
 .photo_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+
 }
 .reviews_profile {
   background-color: white;
   padding: 10px 10px 0 10px;
+  text-align: left;
 }
 .review {
   background: #F4F4F4;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   margin-top: 5px;
   margin-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 10px;
 }
 .review-content {
-
+  text-align: left;
 }
 .review-rating {
-
+  text-align: left;
 }
 .grey-star {
   color: gray;
@@ -72,5 +68,12 @@ h2{
   border: solid 1px #32B796;
 }
 .user-infos {
-
+  text-align: center;
+  padding-left: 35px;
+}
+.competence {
+  text-align: center;
+}
+.buton {
+  display: inline-block;
 }
