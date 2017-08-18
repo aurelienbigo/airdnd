@@ -1,22 +1,24 @@
-<%= simple_form_for @profile do |f| %>
-  <%= f.error_notification %>
+<div class="container">
+  <%= simple_form_for @profile do |f| %>
+    <%= f.error_notification %>
 
-  <%= f.input :address, placeholder: 'Rue des moules' %>
+    <%= f.input :address, placeholder: 'Rue des moules' %>
 
-  <%= f.input :postcode, placeholder: '6969' %>
-  <%= f.input :city, placeholder: 'Lille' %>
+    <%= f.input :postcode, placeholder: '6969' %>
+    <%= f.input :city, placeholder: 'Lille' %>
 
-  <%= f.input :phone, placeholder: 'Pose ton 07' %>
+    <%= f.input :phone, placeholder: 'Pose ton 07' %>
 
-  <%= f.input :skills, collection: Skill.all , prompt: "A propos de toi", label: false %>
+    <p><strong>Mes compétences</strong></p>
+    <%= f.input :skills, collection: Skill.all, label: false, as: :check_boxes %>
 
-  <%= f.input :description, placeholder: 'Parle nous de toi en profondeur.'%>
-  <%= f.input :price, placeholder: 'Nombre de pintes par jour'%>
+    <%= f.input :description, placeholder: 'Parle nous de toi en profondeur.'%>
+    <%= f.input :price, placeholder: 'Nombre de pintes par jour'%>
 
-  <%= f.input :url, placeholder: 'balance ton Git !' %>
+    <%= f.input :url, placeholder: 'balance ton Git !' %>
 
-  <%= f.submit "Je valide", class: "btn btn-success" %>
+    <%= f.submit "Je valide", class: "btn btn-success" %>
 
-<% end %>
-
+  <% end %>
+</div>
 

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit]
+  before_action :set_profile, only: [:show, :edit, :update]
   before_action :set_skills, only: [:index]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -20,7 +20,6 @@ class ProfilesController < ApplicationController
   end
 
   def show
-
     @skills = @profile.skills
     @profile_coordinates = { lat: @profile.lat, lng: @profile.lng }
   end
@@ -30,10 +29,14 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @skills = SkillLvl.new
+
     @profile = Profile.new(profile_params)
+
     @profile.user = current_user
      if @profile.save
+          params[:profile][:skills].each do |id|
+        SkillLvl.create(skill_id: id.to_i, profile_id: @profile.id, lvl: (1..5).to_a.sample) if id != ''
+      end
       redirect_to profile_path(@profile)
     else
       render :new
@@ -45,7 +48,11 @@ class ProfilesController < ApplicationController
 
   def update
     @profile.update(profile_params)
-    redirect_to profiles_path
+    @profile.skill_lvls.destroy_all
+    params[:profile][:skills].each do |id|
+      SkillLvl.create(skill_id: id.to_i, profile_id: @profile.id, lvl: (1..5).to_a.sample) if id != ''
+    end
+    redirect_to profile_path
   end
 
   def destroy
@@ -72,6 +79,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:price, :url, :description, :phone, :address, :postcode, :city, :skill_id)
+    params.require(:profile).permit(:price, :url, :description, :phone, :address, :postcode, :city)
   end
 end
