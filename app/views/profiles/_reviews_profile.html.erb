@@ -1,7 +1,7 @@
 
 <div class="row review">
   <div class="cols-xs-12 col-sm-4 col-md-2 col-lg-2 user-infos">
-    <p class="avatar-lg" align="center"><%= image_tag_for_user(@profile.user) %></p>
+    <p class="avatar-lg" align="center"><%= image_tag_for_user(review.user)%></p>
     <p align="center"><%= link_to review.user.first_name, profile_path(@profile) %></p>
   </div>
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 review-body" align="center">
