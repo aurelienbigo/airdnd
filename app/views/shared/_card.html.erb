@@ -4,16 +4,24 @@
       <%= image_tag_for_user(profile.user) %>
     </div>
     <div class="card-description" align="left">
+
       <h2> <%= profile.user.first_name %> </h2>
       <p><%= profile.city %></p>
 
       <%= render 'shared/stars_card', profile: profile %>
 
       <h4><strong>Prix : <%= profile.price %></strong> <i class="fa fa-beer" aria-hidden="true"></i></h4>
+      </div>
+
+      <div class="skill-home" align="center">
+      <% profile.skills.each do |skill| %>
+          <div class="skills-name" ><%= skill.name %></div>
+          <% end %>
+</div>
     </div>
     <%= link_to '', profile_path(profile), class: "card-link" %>
   </div>
-</div>
+
 
 
 
