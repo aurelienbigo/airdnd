@@ -14,20 +14,30 @@ class ProfilesController < ApplicationController
     # end
 
     #NEW SEARCH LOGIC
-    city = params[:search][:city].gsub(/,.*/,"")
-    price = params[:search][:price].to_i
-    skill = params[:search][:skill]
+    @city = params[:search][:city].gsub(/,.*/,"")
+    @price = params[:search][:price].to_i
+    @skill = params[:search][:skill]
     @profiles = Profile.all
-    if city != ''
-      @profiles = @profiles.all.where(city: city)
+    if @city != ''
+      @profiles = @profiles.all.where(city: @city)
     end
-    if price > 0
-    @profiles = @profiles.where(price: price)
+    if @price > 0
+    @profiles = @profiles.where(price: @price)
     end
-    # if skill != ""
-    # @profiles
-    # end
-    fail
+    # fail
+    unless @skill != "" || nil
+      skilled_profiles = []
+      @profiles.each do |profile|
+        profile.skills.each do |skill|
+          # fail
+          if @skill[:name] == skill[:name]
+            skilled_profiles << profile
+          end
+        @profiles = skilled_profiles
+        end
+      end
+    end
+
 
     @profiles
 
