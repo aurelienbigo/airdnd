@@ -4,43 +4,19 @@ class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # OLD SEARCH LOGIC
-    # lat = params[:lat]
-    # lng = params[:lng]
-    # if lat.blank? || lng.blank?
-      # @profiles = Profile.where.not(lat: nil, lng: nil)
-    # else
-      # @profiles = Profile.near([lat, lng], 20)
-    # end
-
-    #NEW SEARCH LOGIC
     @city = params[:search][:city].gsub(/,.*/,"")
     @price = params[:search][:price].to_i
-    @skill = params[:search][:skill]
+    @skill = params[:search][:skill].to_i
     @profiles = Profile.all
+    unless @skill == 0 || nil
+      @profiles = Profile.joins(:skills).where(skills: {id: @skill})
+    end
     if @city != ''
       @profiles = @profiles.all.where(city: @city)
     end
     if @price > 0
-    @profiles = @profiles.where(price: @price)
+      @profiles = @profiles.where(price: @price)
     end
-    # fail
-    unless @skill != "" || nil
-      skilled_profiles = []
-      @profiles.each do |profile|
-        profile.skills.each do |skill|
-          # fail
-          if @skill[:name] == skill[:name]
-            skilled_profiles << profile
-          end
-        @profiles = skilled_profiles
-        end
-      end
-    end
-
-
-    @profiles
-
     @hash = Gmaps4rails.build_markers(@profiles) do |profile, marker|
       marker.lat profile.lat
       marker.lng profile.lng
