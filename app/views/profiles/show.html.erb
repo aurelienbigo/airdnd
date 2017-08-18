@@ -15,7 +15,7 @@
           </h2>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-6 col-lg-6 buton" align="right">
-          <% unless current_user.nil?  %>
+          <% unless current_user.nil? %>
             <% if current_user.profile.id == @profile.id %>
               <%= link_to "Editer", edit_profile_path(@profile), class: "btn btn-success" %>
             <% else %>
