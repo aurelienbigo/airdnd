@@ -15,11 +15,15 @@
           </h2>
         </div>
         <div class="col-xs-12 col-sm-3 col-md-6 col-lg-6 buton" align="right">
-          <% if current_user.profile.id == @profile.id %>
-            <%= link_to "Editer", edit_profile_path(@profile), class: "btn btn-success" %>
+          <% unless current_user.nil?  %>
+            <% if current_user.profile.id == @profile.id %>
+              <%= link_to "Editer", edit_profile_path(@profile), class: "btn btn-success" %>
+            <% else %>
+              <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
+            <% end %>
           <% else %>
             <%= link_to "Je book", new_profile_reservation_path(@profile), class: "btn btn-success" %>
-            <% end %>
+          <% end %>
         </div>
       </div>
 
