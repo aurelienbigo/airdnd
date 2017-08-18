@@ -123,24 +123,28 @@ wagon_users.each do |user|
                             user_id: u.id
                             )
 # skill level creation
-(1..3).to_a.sample.times do
-  skill_level = SkillLvl.create!(profile: profile,
-                                lvl: (1..5).to_a.sample,
-                                skill: Skill.all.sample,
-                  )
+if Rails.env.production?
+  (1..3).to_a.sample.times do
+    skill_level = SkillLvl.create!(profile: profile,
+                                  lvl: (1..5).to_a.sample,
+                                  skill: Skill.all.sample,
+                    )
+  end
 end
 
   print " and has now a profile,"
   # Reviews creation
-  (3..13).to_a.sample.times do
-    review_count += 1
-    review = Review.create!(rating: (1..5).to_a.sample,
-                            description: Faker::Lorem.paragraph,
-                            user: User.first(5).to_a.sample,
-                            profile_id: profile.id
-                            )
+  if Rails.env.production?
+    (3..13).to_a.sample.times do
+      review_count += 1
+      review = Review.create!(rating: (1..5).to_a.sample,
+                              description: Faker::Lorem.paragraph,
+                              user: User.first(5).to_a.sample,
+                              profile_id: profile.id
+                              )
+    end
+    puts " with #{review_count} reviews."
   end
-  puts " with #{review_count} reviews."
 end
 puts "************************************************"
 puts "Dirty work done"
