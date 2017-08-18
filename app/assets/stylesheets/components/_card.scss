@@ -19,7 +19,7 @@ margin: 2px;
 }
 
 .card {
-  height: 200px;
+  height: 235px;
   width: 330px;
   background-size: cover !important;
   background-position: center;
@@ -48,7 +48,7 @@ margin: 2px;
 .card-description {
   position: absolute;
   height: 100%;
-  top: 5px;
+  top: 1px;
   left: 160px;
 }
 .card-description h2 {
@@ -71,4 +71,9 @@ margin: 2px;
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.skill-home {
+  position: absolute;
+  bottom: 5px;
 }
